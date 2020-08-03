@@ -1,4 +1,4 @@
-#Memo Game
+# Memo Game
 
 This is a simple memo game being build with Swift and Swift UI.
 
