@@ -11,12 +11,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            ForEach(0 ..< 4) { index in Card() }
+            ForEach(0 ..< 4) { index in CardView() }
         }.padding(10)
     }
 }
 
-struct Card: View {
+struct CardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)
