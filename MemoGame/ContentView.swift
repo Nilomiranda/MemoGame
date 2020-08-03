@@ -10,7 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        HStack {
+            ForEach(0 ..< 4) { index in Card() }
+        }.padding(10)
+    }
+}
+
+struct Card: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)
+            Text("👻")
+        }
     }
 }
 
