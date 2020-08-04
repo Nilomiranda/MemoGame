@@ -14,7 +14,9 @@ struct ContentView: View {
     var body: some View {
         HStack {
             ForEach(emojiGame.cards) { card in
-                CardView(card: card)
+                CardView(card: card).onTapGesture {
+                    self.emojiGame.choose(card: card)
+                }.frame(width: 50, height: 75)
             }
         }.padding(10)
     }
@@ -27,6 +29,7 @@ struct CardView: View {
         ZStack {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(Color.white)
+                RoundedRectangle(cornerRadius: 10).stroke().fill(Color.orange)
                 Text(card.content)
             } else {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)

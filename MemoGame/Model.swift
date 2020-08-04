@@ -14,10 +14,7 @@ struct CardGame<CardContent> {
     var cards: Array<Card>
     
     func chooseCard(card: Card) {
-        var chosenCard = card
-        print("Chosen card \(chosenCard.content)")
-        
-        chosenCard.isFaceUp = true
+        print("Chosen card \(card)")
     }
     
     init(numberOfPairsOfCards: Int, contentFactory: (Int) -> CardContent) {
@@ -33,7 +30,7 @@ struct CardGame<CardContent> {
     }
     
     struct Card: Identifiable {
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         var content: CardContent
         
