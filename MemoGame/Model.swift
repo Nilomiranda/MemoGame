@@ -27,14 +27,16 @@ struct CardGame<CardContent> {
             let content = contentFactory(pairIndex)
             
             // append two cards (a pair) to the array of cards
-            cards.append(Card(content: content))
-            cards.append(Card(content: content))
+            cards.append(Card(content: content, id: pairIndex * 2))
+            cards.append(Card(content: content, id: pairIndex * 2+1))
         }
     }
     
-    struct Card {
+    struct Card: Identifiable {
         var isFaceUp: Bool = false
         var isMatched: Bool = false
         var content: CardContent
+        
+        var id: Int
     }
 }

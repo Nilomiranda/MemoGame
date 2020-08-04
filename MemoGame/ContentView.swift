@@ -9,24 +9,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    var emojiGame: EmojiMemoryGame
+    
     var body: some View {
         HStack {
-            ForEach(0 ..< 4) { index in CardView() }
+            ForEach(emojiGame.cards) { card in
+                CardView(card: card)
+            }
         }.padding(10)
     }
 }
 
 struct CardView: View {
+    var card: CardGame<String>.Card
+    
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)
-            Text("👻")
+            if card.isFaceUp {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(Color.white)
+                Text(card.content)
+            } else {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(emojiGame: EmojiMemoryGame())
     }
 }
