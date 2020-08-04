@@ -14,9 +14,8 @@ class EmojiMemoryGame {
     static func createMemoryGame() -> CardGame<String> {
         let emojis = ["👻", "🧟‍♂️", "🧙🏻‍♂️", "🎃", "🕸"]
         
-        let randomNumberOfPairs = Int.random(in:1...5)
+        let randomNumberOfPairs = Int.random(in:2...5)
         
-        print(randomNumberOfPairs)
         
         return CardGame<String>(numberOfPairsOfCards: randomNumberOfPairs) {
             pairIndex in emojis[pairIndex]
@@ -30,9 +29,13 @@ class EmojiMemoryGame {
         model.cards
     }
     
+    var pairs: Int {
+        model.numberOfPairs
+    }
+    
     // MARK: - Intent(s)
     
-    // this will expose a methods to be used by the View to interact with the Model's cards
+    // this will expose methods to be used by the View to interact with the Model's cards
     func choose(card: CardGame<String>.Card) {
         model.chooseCard(card: card)
     }

@@ -12,6 +12,7 @@ import Foundation
 // CardContent -> Type of content that the card will hold. Can be String, Int...
 struct CardGame<CardContent> {
     var cards: Array<Card>
+    var numberOfPairs: Int
     
     func chooseCard(card: Card) {
         print("Chosen card \(card)")
@@ -19,6 +20,7 @@ struct CardGame<CardContent> {
     
     init(numberOfPairsOfCards: Int, contentFactory: (Int) -> CardContent) {
         cards = []
+        numberOfPairs = numberOfPairsOfCards
         
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = contentFactory(pairIndex)
